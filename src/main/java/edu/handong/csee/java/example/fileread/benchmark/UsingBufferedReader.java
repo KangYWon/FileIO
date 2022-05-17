@@ -1,6 +1,8 @@
 package edu.handong.csee.java.example.fileread.benchmark;
 
 import java.io.*;
+import java.util.Scanner;
+
 
 /**
  * Created by sherxon on 4/23/17. https://github.com/sherxon/AlgoDS/tree/master/src/oi
@@ -8,25 +10,32 @@ import java.io.*;
 public class UsingBufferedReader {
     public static void main(String[] args) throws IOException {
 
-
+    	Scanner input = new Scanner(new File(args[0]));
+    	
+    	
+   
+    	
+    	
         //-------------- Test reading 1 MB file. --------------------
 
         StopWatch.start();
 
-        BufferedReader inputStream= new BufferedReader(new FileReader(DumpDataWriter.input1MB));
-        while (inputStream.read()!=-1){}
+        BufferedReader inputStream= new BufferedReader(new FileReader(args[0]));
+        
+		while (inputStream.read()!=-1){}
 
         long duration = StopWatch.stop();
         System.out.println(duration + " milsec");
         
         inputStream.close();
+        
 
 
         //-------------- Test reading 10 MB file. --------------------
 
         StopWatch.start();
 
-        BufferedReader inputStream2= new BufferedReader(new FileReader(DumpDataWriter.input10MB));
+        BufferedReader inputStream2= new BufferedReader(new FileReader(args[1]));
         while (inputStream2.read()!=-1){}
 
         long duration2 = StopWatch.stop();
@@ -61,5 +70,8 @@ public class UsingBufferedReader {
         
         inputStream4.close();
         */
+    	
+    	
+    
     }
 }
